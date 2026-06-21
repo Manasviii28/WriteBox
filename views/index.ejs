@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main  w-full  min-h-screen bg-zinc-800 ">
+        <div class="px-10 text-white py-10 ">
+            <form action="/create" method="post">
+                <input class="rounded-lg block border-2  m-5 w-72 bg-grey-400  p-4   " placeholder="Title"  name="title">
+                <textarea class=" rounded-lg block border-2  m-5 w-72 bg-grey-400  resize-none  p-4 " placeholder="Details" name="details" ></textarea>
+                <input class="rounded-lg block   border-2  m-5 w-72 h-12 bg-blue-400  text-black  text-xl border-none "  type="submit" value="create task">
+            </form>
+        </div>
+        <div class=" flex flex-wrap  ">
+            <% if(files.length>0){ %>
+                <% files.forEach(function(val){ %>
+                    <div class="bg-grey-700 ml-15 w-45  rounded-lg block border-2  border-black outline-none  py-3 px-5" >
+                        <h1 class=" text-white"> <%= val %> </h1>
+                        <div class="flex justify-between">
+                            <a class="text-blue-400 " href="/files/<%= val %>">read more</a>
+                            <a class="text-zinc-400" href="/edit/<%= val %>">edit</a>
+                        </div>
+
+                    </div>
+                    
+                <% })%>
+            <% }else{ %>
+                <h3 class="bg-grey-700 px-20">No task yet</h3>
+            <% }%>
+        </div>    
+        
+        
+        
+        
+    </div>
+    
+</body>
+</html>
